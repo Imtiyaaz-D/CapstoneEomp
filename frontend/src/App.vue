@@ -1,13 +1,16 @@
 <template>
   <div>
   <NavbarComp/>
+  <main>
+    <router-view/>
+  </main>
   <FooterComp/>
-  <router-link/>
 </div>
 </template>
 <script>
-import NavbarComp from "./components/NavbarComp.vue";
-import FooterComp from "./components/FooterComp.vue";
+import NavbarComp from "@/components/NavbarComp.vue";
+import FooterComp from "@/components/FooterComp.vue";
+import axios from 'axios'
  export default{
   components:{
     NavbarComp,
@@ -26,6 +29,9 @@ import FooterComp from "./components/FooterComp.vue";
   text-align: center;
   color: #2c3e50;
 }
+body{
+  background-color: #F6F0ED;
+}
 
 nav {
   padding: 30px;
@@ -33,10 +39,10 @@ nav {
 
 nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #BBB193;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: #7EA8BE;
 }
 </style>

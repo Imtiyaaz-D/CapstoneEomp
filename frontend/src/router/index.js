@@ -19,7 +19,24 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: () => import('../views/AdminView.vue')
+  },
+  {
+    path: '/products',
+    name: 'products',
+    component: () => import('../views/ProductsView.vue')
+  },
+  {
+    path : '/contact',
+    name: 'contact',
+    component: () => import('../views/ContactView.vue')
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: ()=> import('../views/CartView.vue')
   }
+  
+  
 ]
 
 const router = createRouter({
