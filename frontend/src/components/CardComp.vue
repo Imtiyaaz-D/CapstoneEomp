@@ -6,9 +6,9 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ product.prodName }}</h5>
                   <p class="card-text">{{ product.Category }}</p>
-                  <p class="card-price">R{{ product.amount }}</p>
-                  <p class="card-quantity">{{ product.quantity }}</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <p class="card-price">R {{ product.amount }}</p>
+                  <p class="card-quantity"> Quantity: {{ product.quantity }}</p>
+                  <a href="#" class="btn btn-primary">Add to Cart</a>
                 </div>
               </div>         
         </div>
@@ -30,5 +30,10 @@
 </script>
 
 <style scoped>
+.productDisplay{
+    display: flex;
+    justify-content: center;
+}
+   
 
 </style>

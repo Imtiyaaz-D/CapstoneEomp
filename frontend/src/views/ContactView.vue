@@ -3,7 +3,7 @@
         <div class="container">  
             <form id="contact" action="https://formspree.io/f/mpzgrbae" method="POST">
               <h3>Quick Contact</h3>
-              <h4>Contact us today, and get reply with in 24 hours!</h4>
+              <h4>Contact us today!</h4>
               <fieldset>
                 <input placeholder="Your name" type="text" tabindex="1" required autofocus>
               </fieldset>
@@ -14,10 +14,7 @@
                 <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
               </fieldset>
               <fieldset>
-                <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
-              </fieldset>
-              <fieldset>
-                <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+                <textarea placeholder="Type your Message Here..." tabindex="5" required></textarea>
               </fieldset>
               <fieldset>
                 <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
@@ -43,7 +40,12 @@
 	position:relative;
 }
 
-#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+#contact input[type="text"], 
+#contact input[type="email"], 
+#contact input[type="tel"], 
+#contact input[type="url"], 
+#contact textarea, 
+#contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
 
 #contact {
 	background:#F6F0ED;
@@ -52,7 +54,7 @@
 }
 
 #contact h3 {
-	color: #F96;
+	color: #7EA8BE;
 	display: block;
 	font-size: 30px;
 	font-weight: 400;

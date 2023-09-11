@@ -1,9 +1,9 @@
 <template>
   <div>
   <NavbarComp/>
-  <main>
+
     <router-view/>
-  </main>
+  
   <FooterComp/>
 </div>
 </template>
@@ -44,5 +44,8 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #7EA8BE;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 </style>

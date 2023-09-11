@@ -31,7 +31,6 @@ export default {
     margin: 5rem;
 }
 .comment-left{
-    border: solid red 1rem;
     display:flex;
     justify-content: left;
 }
