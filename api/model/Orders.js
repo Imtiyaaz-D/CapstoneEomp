@@ -36,7 +36,7 @@ class Orders{
         `
         db.query(query,[req.body],(err)=>{
             res.json({
-                status:res.statusCode,
+                status: res.statusCode,
                 msg: "Your order has been updated."
             })
         })
@@ -49,7 +49,7 @@ class Orders{
         db.query(query,[data],(err,results)=>{
             if(err) throw err
             res.json({
-                status:res.statusCode,
+                status: res.statusCode,
                 results
             })
         })

@@ -86,7 +86,7 @@ class Users{
                         })
                     }else{
                         res.json({
-                            status: statusCode,
+                            status: res.statusCode,
                             msg: "Invalid password or you have not registered"
                         })
                     }

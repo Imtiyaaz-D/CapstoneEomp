@@ -22,7 +22,7 @@ class Products{
         db .query(query,(err,results)=>{
             if(err) throw err
             res.json({
-                status:res.statusCode,
+                status: res.statusCode,
                 results
             })
         })
