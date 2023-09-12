@@ -52,7 +52,7 @@
 }
 
 #contact h3 {
-	color: #F96;
+	color: #7EA8BE;
 	display: block;
 	font-size: 30px;
 	font-weight: 400;

@@ -1,11 +1,33 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import {useCookies} from 'vue3-cookies'
+const cookies = useCookies()
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    beforeEnter(){
+      if(!cookies.get('GrantedAccess')){
+        router.push({
+          name:'login'
+        })
+      }
+    }
+  },
+  {
+    path:'/login',
+    name: 'login',
+    component: () => import('../views/LoginView.vue'),
+    afterEnter(){
+      if(!cookies.delete('GrantUserAccess')){
+        router.push({
+          name:'home'
+        })
+      }
+      
+    }
+
   },
   {
     path: '/about',
@@ -34,6 +56,11 @@ const routes = [
     path: '/cart',
     name: 'cart',
     component: ()=> import('../views/CartView.vue')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: ()=> import('../views/RegisterView.vue')
   }
   
   
