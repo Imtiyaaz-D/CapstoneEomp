@@ -8,7 +8,7 @@
               </button>
               <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="" alt="logo"></h5>
+                  <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><img src="https://i.postimg.cc/ZKFVXkGQ/logo-Zhen-sm.jpg" alt="logo" loading="lazy"></h5>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -28,6 +28,17 @@
                       <li class="nav-item">
                         <router-link class="nav-link" to="/contact">Contact Us</router-link>
                       </li>
+                      <li class="nav-item">
+                        <router-link class="nav-link" to="/login">Login</router-link>
+                      </li>
+                      <li class="nav-item">
+                        <router-link class="nav-link" to="/register">Register</router-link>
+                      </li>
+                      <!-- <li class="nav-item" data-bs-dismiss="offcanvas">
+                        <router-link class="nav-link" to="/login"
+                           @click="logout">Log Out</router-link
+                        >
+                      </li> -->
                   </ul>
                 </div>
               </div>
@@ -37,8 +48,23 @@
 </template>
 
 <script>
+import {useCookies} from 'vue3-cookies'
+const {cookies} = useCookies()
     export default {
-        
+       computed:{
+        user(){
+          return this.$store.user ||
+          cookies.get('GrantedUser')
+        },
+        results(){
+          return this.user?.results;
+        }
+       },
+       methods:{
+        logout(){
+          this.$store.dispatch('logout')
+        }
+       }
     }
 </script>
 

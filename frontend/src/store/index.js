@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
 import axios from "axios"
+import sweet from 'sweet-alert'
+import router from '@/router'
 const ZhenUrl = "https://zhen.onrender.com/"
 export default createStore({
   state: {
@@ -20,6 +22,9 @@ export default createStore({
     },
     setUser(state,user){
       state.user = user
+    },
+    addUser(state,users){
+      state.users = users
     },
     setProducts(state,products){
       state.products = products
@@ -50,7 +55,83 @@ export default createStore({
     }catch(e){
       context.commit("setMsg","an error has occured")
     }
-    }
+    },
+    async register(context, payload) {
+      try {
+        const { msg , token, result} = (await axios.post(`${ZhenUrl}register`, payload))
+          .data;
+        if (msg) {
+          sweet({
+            title: "Registration",
+            text: msg,
+            icon: "success",
+            timer: 3000,
+          });
+          context.dispatch("fetchUsers");
+          cookies.set("GrantedAccess", { token, msg, result });
+          router.push({ name: "home" });
+        } else {
+          sweet({
+            title: "Error",
+            text: "Oops, an error occured",
+            icon: "error",
+            timer: 3000,
+          });
+        }
+      } catch (e) {
+        context.commit(console.log(e));
+      }
+    },
+   
+    // Make a register function (action) 
+    async login(context, payload) {
+      try {
+        const { msg, token, results } = (
+          await axios.post(`${ZhenUrl}login`, payload)
+        ).data;
+        if (results) {
+          context.commit("setUser", { results, msg });
+          cookies.set("GrantedUserAccess", { token, msg, results });
+          authUser.applyToken(token);
+          sweet({
+            title: msg,
+            text: `Welcome Back, ${results?.firstName}
+              ${results?.lastName}`,
+            icon: "success",
+            timer: 3000,
+          });
+          router.push({ name: "home" });
+        } else {
+          sweet({
+            title: "Error",
+            text: "Oops, an error occured",
+            icon: "error",
+            timer: 3000,
+          });
+        }
+      } catch (e) {
+        context.commit(console.log(e));
+      }
+    },
+    async logout(context) {
+      context.commit("setUser")
+      cookies.remove("GrantedUserAccess")
+      router.push({ name: "login" })
+    },
+    async fetchUser(context, userID) {
+      try {
+        const { results } = (await axios.get(`${ZhenUrl}user/${userID}`))
+          .data;
+        context.commit("setUser", results);
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Oops, an error occured",
+          icon: "error",
+          timer: 3000,
+        });
+      }
+    },
   },
   modules: {
   }
