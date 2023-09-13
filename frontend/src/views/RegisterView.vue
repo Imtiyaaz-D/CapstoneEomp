@@ -10,7 +10,7 @@
                 <input
                   type="name"
                   class="form-control"
-                  placeholder="First Name"
+                  placeholder="FirstName"
                   v-model="payload.firstName"
                   required
                 />
@@ -21,12 +21,34 @@
                 <input
                   type="surname"
                   class="form-control"
-                  placeholder="Last Name"
+                  placeholder="LastName"
                   v-model="payload.lastName"
                   required
                 />
               </span>
             </div>
+            <div class="form-control-wrapper">
+                <span class="inline">
+                  <input
+                    type="age"
+                    class="form-control"
+                    placeholder="Age"
+                    v-model="payload.userAge"
+                    required
+                  />
+                </span>
+              </div>
+              <div class="form-control-wrapper">
+                <span class="inline">
+                  <input
+                    type="gender"
+                    class="form-control"
+                    placeholder="Gender"
+                    v-model="payload.gender"
+                    required
+                  />
+                </span>
+              </div>
             <div class="form-control-wrapper">
               <span class="inline">
                 <input
@@ -74,16 +96,25 @@
               <div class="col">
                 <button type="submit" class="btn btn-success">
                   Submit
-                  <span
+                  <!-- <span
                     v-show="spinner"
                     class="spinner-border spinner-border-sm"
                     role="status"
                     aria-hidden="true"
-                  ></span>
+                  ></span> -->
                 </button>
               </div>
             </div>
           </form>
+          <div class="form-control-wrapper">
+            <div class="row">
+              <div class="col">
+                <router-link class="d-flex justify-content-center text-decoration-none" to="/login"
+                  >Once you have been registered... Continue to the login page</router-link
+                >
+              </div>
+            </div>
+          </div>
         </div>
         <!-- <div v-else class="row">
           <SpinnerComp/>
@@ -101,6 +132,8 @@
         payload: {
           firstName: "",
           lastName: "",
+          userAge:"",
+          gender:"",
           emailAdd: "",
           userPass: "",
           userRole: "",

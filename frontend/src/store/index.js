@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import axios from "axios"
 import sweet from 'sweet-alert'
 import router from '@/router'
+import AuthenticateUser from '@/services/AuthenticateUser.js'
 const ZhenUrl = "https://zhen.onrender.com/"
 export default createStore({
   state: {
@@ -32,6 +33,9 @@ export default createStore({
     setProduct(state,product){
       state.product = product
     },
+    setDeleteProducts(state,products){
+      state.products = products
+    },
     setSpinner(state,value){
       state.spinner = value
     },
@@ -58,7 +62,7 @@ export default createStore({
     },
     async register(context, payload) {
       try {
-        const { msg , token, result} = (await axios.post(`${ZhenUrl}register`, payload))
+        const { msg } = (await axios.post(`${ZhenUrl}register`, payload))
           .data;
         if (msg) {
           sweet({
@@ -82,7 +86,15 @@ export default createStore({
         context.commit(console.log(e));
       }
     },
-   
+    async deleteProducts(comtext, prodID){
+      try{
+        const response = await axios.delete(`${ZhenUrl}products/${prodID}`)
+        context.commit("setDeleteProducts",response)
+        // location.reload()
+      }catch(e){
+        context.commit("setMsg","An error occured")
+      }
+    },
     // Make a register function (action) 
     async login(context, payload) {
       try {
@@ -109,7 +121,7 @@ export default createStore({
             timer: 3000,
           });
         }
-      } catch (e) {
+      } catch(e){
         context.commit(console.log(e));
       }
     },

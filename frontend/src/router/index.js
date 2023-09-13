@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import {useCookies} from 'vue3-cookies'
-const cookies = useCookies()
+const {cookies} = useCookies()
 const routes = [
   {
     path: '/',
@@ -46,6 +46,12 @@ const routes = [
     path: '/products',
     name: 'products',
     component: () => import('../views/ProductsView.vue')
+  },
+  {
+    path: '/product/:prodID',
+    name: 'product',
+    props: true,
+    component: () =>('../views/SingleProductView.vue')
   },
   {
     path : '/contact',

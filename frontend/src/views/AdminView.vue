@@ -2,8 +2,8 @@
     <div>
       <h2>Admin</h2>
     <div>
-
       <div id="style_table" class="container">
+        <h2>Products</h2>
         <table class="table" style="background-color: #eac7a1; color: #553a1d; border: 3px solid #D09869;" id="table">
           <thead class="head">
             <tr>
@@ -11,6 +11,7 @@
               <th id="name">Name</th>
               <th id="price">Price (ZAR)</th>
               <th id="img-head">Image</th>
+              <th id="Category">Category</th>
               <th id="amount">Quantity</th>
               <th id="del">Delete</th>
               <th id="edit">Edit</th>
@@ -28,10 +29,11 @@
                   style="width: 13.5rem"
                 />
               </td>
+              <td id="Catgory"> {{ product.Category }}</td>
               <td id="amount">{{ product.quantity }}</td>
 
               <td id="del">
-                <button class="del" @click="deleteProduct(product.prodID)">
+                <button class="del" @click="deleteProducts(product.prodID)">
                   delete
                 </button>
               </td>
@@ -48,6 +50,7 @@
 
     <div>
       <div id="style_table" class="container">
+        <h2>User</h2>
         <table class="table" style="background-color: #eac7a1; color: #553a1d; border: 3px solid #D09869;" id="table">
           <thead class="head">
             <tr>
@@ -64,9 +67,7 @@
           </thead>
           
           <tbody id="user-table" >
-            <div class="row" v-if="users">
-              <spinnerComp/>
-            </div>
+            
             <tr v-for="user in users" :key="user.userID" >
               <td id="id">{{ user.userID }}</td>
               <td id="name">{{ user.firstName }}</td>
@@ -84,7 +85,7 @@
               
 
               <td id="del">
-                <button class="del" @click="deleteProduct(product.prodID)">
+                <button class="del" @click="deleteUser(user.userID)">
                   delete
                 </button>
               </td>
@@ -101,7 +102,7 @@
 </template>
 
 <script>
-import spinnerComp from '../components/spinnerComp.vue';
+
     export default {
       computed:{
         products(){
@@ -120,8 +121,11 @@ import spinnerComp from '../components/spinnerComp.vue';
           product: [],
         }
       },
-      components:{
-        spinnerComp,
+      methods:{
+        deleteProducts(prodID){
+          this.$store.dispatch('deleteProducts',prodID)
+        },
+      
       }
         
     }

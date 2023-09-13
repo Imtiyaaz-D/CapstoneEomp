@@ -5,18 +5,12 @@
             
         </div>
         <p> Welcome to the garden of boys and the playground of man</p>
-    <div>
-        <CardComp/>
-    </div>
     </div>
 </template>
 
 <script>
-import CardComp from '@/components/CardComp.vue';
 export default {
-  components:{
-    CardComp
-  } 
+  
    
    
 }
