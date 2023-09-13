@@ -21,7 +21,7 @@
               placeholder="password"
               minlength="4"
               maxlength="12"
-              v-model="payload.user_password"
+              v-model="payload.userPass"
             />
           </span>
         </div>
@@ -88,7 +88,7 @@ export default {
   beforeCreate() {
     this.$store.dispatch('fetchUsers')
   },
-    mounted() {
+  mounted() {
     console.log(cookies.get("GrantedUserAccess"));
   }
 };

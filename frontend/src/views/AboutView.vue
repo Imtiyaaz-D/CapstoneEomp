@@ -1,14 +1,16 @@
 <template>
-    <div>
-        <div class="container">
+    <div class="container">
+        <div>
             <!-- <img src="https://i.postimg.cc/bJPcRR6M/pexels-nubia-navarro-nubikini-981588.jpg" alt="background-img" loading="lazy"> -->
             <h2>About</h2>
             <p>
                 Where teenagers come to grow playful imagination and develop
             </p>
-            <p>To experience the calm the mind when you have trouble</p>
+            <p>At Zhen, we are more than just a business; we are a passionate team dedicated to provide customers with affordable plushes and fidget spinners. Founded in 2023, our journey began with a vision to bring toys of your imagnation to the people.</p>
+            <p>
+
+            </p>
         </div>
-      
     </div>
    
 </template>
@@ -19,23 +21,27 @@ export default {
   
       
 }
+
 </script>
 
 <style scoped>
+
+
+
 .container{
-    background: contain;
-    background: url(https://i.postimg.cc/tTT23Z3P/pexels-rombo-3671194.jpg);
+    background-size:cover;
     overflow: contain;
     margin: 5rem;
-    
+    background-image: url(https://i.postimg.cc/bJPcRR6M/pexels-nubia-navarro-nubikini-981588.jpg);
+    background-attachment: scroll;
+    width: 100%;
+
 }
-.container 
+ 
 p{
     display: flex;
     justify-content: right;
     margin: 5rem;
-   
-   
+    background-color:#BBB193; 
 }
-
 </style>

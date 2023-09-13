@@ -1,6 +1,6 @@
 <template>
     <div>
-        <footer class="bot fixed-bottom">
+        <footer class="bot">
             <p>ZHEN  &copy;copyright {{ cYear }}</p>
             <p>Built by Imtiyaaz Damon</p>
         </footer>
@@ -21,6 +21,7 @@
 <style scoped>
 .bot{
     background-color:#BBB193;
+    padding-bottom: 2rem;
 }
 
 </style>
