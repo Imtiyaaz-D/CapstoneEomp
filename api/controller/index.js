@@ -15,9 +15,9 @@ routes.get('/user/:id',(req,res)=>{
 routes.post('/user', bodyParser.json(),(req,res)=>{
     users.registerUser(req,res)
 })
-// routes.post('/users', bodyParser.json(),(req,res)=>{
-//     users.addUser(req,res)
-// })
+routes.post('/register', bodyParser.json(),(req,res)=>{
+    users.addUser(req,res)
+})
 
 routes.put('/user/:id',bodyParser.json(),(res,req)=>{
     users.updateUser(req,res)

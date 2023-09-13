@@ -94,21 +94,21 @@ class Users{
             }
         })
     }
-    //  addUser(req,res){
-    //     const data = req.body;
-    //     const query =  
-    //     `
-    //     INSERT INTO Users
-    //     SET ?;
-    //     ` 
-    //       db.query(query,[data],err =>{
-    //         if(err) throw err
-    //         res.json({
-    //             status: res.statusCode,
-    //             msg:"user has bee added"
-    //         })
-    //       })  
-    //  }
+     addUser(req,res){
+        const data = req.body;
+        const query =  
+        `
+        INSERT INTO Users
+        SET ?;
+        ` 
+          db.query(query,[data],err =>{
+            if(err) throw err
+            res.json({
+                status: res.statusCode,
+                msg:"user has been registered"
+            })
+          })  
+     }
 
 
     updateUser(req, res) {
