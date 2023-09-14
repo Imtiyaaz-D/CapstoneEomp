@@ -5,12 +5,12 @@ const app = express();
 const cors = require("cors");
 // Importing error handling middlware
 const cookieParser = require("cookie-parser");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 // const errorHandling = require('./middleware/ErrorHandling.js')
 const port = +process.env.PORT || 3000;
 
 app.use((req,res,next)=>{
-    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Origin","http://localhost:8080/");
     res.header("Access-Control-Allow-Credentials","true");
     res.header("Access-Control-Allow-Methods","*");
     res.header("Access-Control-Requst-Methods","*");
