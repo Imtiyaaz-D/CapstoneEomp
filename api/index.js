@@ -11,7 +11,7 @@ const port = +process.env.PORT || 3000;
 
 app.use(express.static("./static")),
 app.use(express.urlencoded({
-    extend: false,
+    extend: true,
 }),
 cors(),
 cookieParser(),
