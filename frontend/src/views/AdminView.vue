@@ -39,7 +39,7 @@
               </td>
 
               <td id="edit">
-                <button class="edit">edit</button>
+                <button class="edit"><router-link :to="`/edit-product/${product.prodID}`"></router-link>Edit </button>
               </td>
             </tr>
           </tbody>
@@ -91,7 +91,7 @@
               </td>
 
               <td id="edit">
-                <button class="edit">edit</button>
+                <button class="edit"><editProductCompVue/></button>
               </td>
             </tr>
           </tbody>
@@ -103,6 +103,7 @@
 
 <script>
 
+import editProductCompVue from '@/components/editProductComp.vue'
     export default {
       computed:{
         products(){
@@ -126,6 +127,9 @@
           this.$store.dispatch('deleteProducts',prodID)
         },
       
+      },
+      components:{
+        editProductCompVue
       }
         
     }
