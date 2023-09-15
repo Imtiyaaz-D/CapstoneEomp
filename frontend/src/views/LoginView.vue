@@ -8,7 +8,7 @@
               type="email"
               class="form-control"
               placeholder="email"
-              v-model="payload.email"
+              v-model="payload.emailAdd"
               required
             />
           </span>
@@ -30,7 +30,6 @@
             <button type="submit" class="btn btn-success">
               Log In
               <span
-                v-show="spinner"
                 class="spinner-border spinner-border-sm"
                 role="status"
                 aria-hidden="true"
@@ -41,7 +40,9 @@
         <div class="form-control-wrapper">
           <div class="row">
             <div class="col">
-              <router-link class="d-flex justify-content-center text-decoration-none" to="/register"
+              <router-link
+                class="d-flex justify-content-center text-decoration-none"
+                to="/register"
                 >Don't have an account ? Click here to register</router-link
               >
             </div>
@@ -52,56 +53,34 @@
   </div>
 </template>
 <script>
-// import NewUserComp from "@/components/NewUserComp";
-import { useCookies } from "vue3-cookies";
-const { cookies } = useCookies();
-// import { computed } from 'vue';
 export default {
-  components: {
-  },
   data() {
     return {
       payload: {
         emailAdd: "",
         userPass: "",
       },
-      message: null,
     };
-  },
-  computed: {
-    user() {
-      return this.$store.state.user;
-      //  || JSON.parse( cookies.get('GrantedUserAccess'))
-    },
-    spinner() {
-      return this.$store.state.spinner;
-    },
   },
   methods: {
     login() {
       this.$store.dispatch("login", this.payload);
     },
-    // logout() {
-    //   this.$store.dispatch("logout", this.payload)
-    // },
   },
   beforeCreate() {
-    this.$store.dispatch('fetchUsers')
+    this.$store.dispatch("fetchUsers");
   },
-  mounted() {
-    console.log(cookies.get("GrantedUserAccess"));
-  }
 };
 </script>
-<style scoped>
-</style>
+<style scoped></style>
 
 <style scoped>
-body{
-    background-color: #F6F0ED;
+body {
+  background-color: #f6f0ed;
 }
-.container{
-    padding: 10rem;
+.container {
+  padding: 10rem;
+}
 
-}
+
 </style>

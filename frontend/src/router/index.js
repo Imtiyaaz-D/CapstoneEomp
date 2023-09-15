@@ -7,26 +7,18 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
-    beforeEnter(){
-      if(!cookies.get('GrantedAccess')){
-        router.push({
-          name:'login'
-        })
-      }
-    }
+    // beforeEnter(){
+    //   if(!cookies.get('GrantedAccess')){
+    //     router.push({
+    //       name:'login'
+    //     })
+    //   }
+    // }
   },
   {
     path:'/login',
     name: 'login',
     component: () => import('../views/LoginView.vue'),
-    afterEnter(){
-      if(!cookies.delete('GrantUserAccess')){
-        router.push({
-          name:'home'
-        })
-      }
-      
-    }
 
   },
   {

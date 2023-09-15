@@ -30,17 +30,17 @@ export default {
 
 .container{
     background-size:cover;
-    overflow: contain;
     margin: 5rem;
     background-image: url(https://i.postimg.cc/bJPcRR6M/pexels-nubia-navarro-nubikini-981588.jpg);
     background-attachment: scroll;
     width: 100%;
+    height: 100%;
 
 }
  
 p{
     display: flex;
-    justify-content: right;
+    justify-content: center;
     margin: 5rem;
     background-color:#BBB193; 
 }
